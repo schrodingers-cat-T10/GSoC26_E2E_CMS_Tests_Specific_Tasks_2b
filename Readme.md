@@ -1,37 +1,136 @@
-# Jet Image Super-Resolution using Diffusion and GANs
+# Jet Image Super-Resolution using Diffusion and GAN
 
-This project explores super-resolution for jet images from high-energy physics using deep learning. The goal is to reconstruct high-resolution (HR) jet images from low-resolution (LR) inputs while preserving fine spatial structures and physically meaningful patterns.
+**GSoC 2026 Project** | 
 
-Two approaches are implemented:
-- A **conditional diffusion model** (primary focus)
-- A **GAN-based baseline (SRGAN-style)**
+This project explores how modern generative models can reconstruct **high-resolution jet images** from **low-resolution detector images**.
 
----
-
-## Motivation
-
-Jet images represent energy deposits across detector components. Due to detector limitations, these images are often low resolution, which affects downstream tasks such as jet classification and substructure analysis.
-
-Instead of relying on hardware improvements, this project investigates whether **learning-based super-resolution** can recover missing spatial detail.
+We compare two approaches:
+-  Diffusion Models (main method)
+- GAN-based Super-Resolution (baseline)
 
 ---
 
-## Implemented Approaches
+## Overview
+
+### Problem
+
+Jet images from particle physics experiments have **limited resolution**, which affects:
+- Jet classification
+- Substructure analysis
+- Physics measurements
+
+### Solution
+
+Instead of upgrading hardware, we use **deep learning** to:
+- Learn from LR–HR image pairs  
+- Reconstruct missing details  
+- Preserve important physical features  
+
+---
+
+## Models Used
 
 ### 1. Diffusion Model (Primary)
 
-The diffusion model learns to reconstruct images by predicting noise added during a forward process.
+- Learns to **gradually remove noise** from images  
+- Produces **stable and consistent results**  
+- Captures global structure using attention  
 
-#### Key Ideas
-- Add noise to HR images over multiple timesteps
-- Train a model to predict that noise
-- Iteratively denoise to generate high-resolution outputs
+**Key strengths:**
+- High-quality reconstructions  
+- Stable training  
+- Better physical consistency  
 
-#### Architecture
-- U-Net backbone
-- Residual blocks with time conditioning
-- Self-attention (Transformer blocks)
-- Sinusoidal timestep embeddings
+---
 
-#### Conditioning Strategy
-The model is conditioned on LR inputs using:
+### 2. SRGAN (Baseline)
+
+- Uses **Generator + Discriminator**
+- Generator creates HR images from LR input  
+- Discriminator checks realism  
+
+**Key strengths:**
+- Sharp outputs  
+- Fast inference  
+
+**Limitations:**
+- Less stable training  
+- Can introduce artifacts  
+
+---
+
+## Dataset
+
+- Paired **Low-Resolution (LR)** and **High-Resolution (HR)** jet images  
+- Stored in `.npz` format  
+
+**Structure:**
+- Training / Validation / Test splits  
+- Multi-channel jet images  
+
+---
+
+## Preprocessing
+
+To handle physics data:
+
+- Remove low-energy noise  
+- Apply log scaling  
+- Normalize values  
+- Clip outliers  
+
+---
+
+## Project Structure
+
+    gsoc_2026/
+    ├── notebook/        # Model training notebooks
+    ├── data/            # Dataset and preprocessing
+    ├── model_weights/   # Saved models
+    ├── output/          # Generated results
+    └── README.md
+
+---
+
+## Training
+
+### Diffusion Model
+- Learns to predict noise at different steps  
+- Uses MSE loss  
+- Iterative denoising process  
+
+### GAN
+- Alternates between:
+  - Discriminator training  
+  - Generator training  (unet based architecture)
+- Uses adversarial + L1 loss - **introduced seperate loss for each channel for experimenting**
+
+---
+
+## Inference
+
+### Diffusion
+- Start from random noise  
+- Gradually refine image  
+- Produces high-quality outputs  
+
+### GAN
+- Directly generates HR image from LR  
+- Much faster but less stable  
+
+---
+
+## Setup
+
+Basic requirements:
+- Python 3.8+
+- PyTorch
+- NumPy, Matplotlib
+
+---
+
+## Acknowledgments
+
+- Google Summer of Code 2026  
+- CMS Collaboration  
+- Open-source community  
