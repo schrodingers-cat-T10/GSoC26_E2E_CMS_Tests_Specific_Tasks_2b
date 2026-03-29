@@ -5,7 +5,7 @@
 This project explores how modern generative models can reconstruct **high-resolution jet images** from **low-resolution detector images**.
 
 We compare two approaches:
--  Diffusion Models 
+-  Conditional Diffusion 
 - SRGAN (baseline)
 
 ---
@@ -28,9 +28,9 @@ Instead of upgrading hardware, we use **deep learning** to:
 
 ---
 
-## Models Used
+## Model 
 
-### 1. Diffusion Model 
+### 1. Conditional Diffusion  
 
 - Learns to **gradually remove noise** from images  
 - Produces **stable and consistent results**  
