@@ -6,7 +6,7 @@ This project explores how modern generative models can reconstruct **high-resolu
 
 We compare two approaches:
 -  Diffusion Models 
-- GAN-based Super-Resolution (baseline)
+- SRGAN (baseline)
 
 ---
 
