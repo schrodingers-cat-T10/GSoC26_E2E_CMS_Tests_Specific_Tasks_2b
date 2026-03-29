@@ -1,4 +1,4 @@
-# Super resolution at the CMS detector using Diffusion and GAN
+# Super resolution at the CMS detector
 
 **GSoC 2026 ml4sci - Specific Tasks 2b** 
 
@@ -39,8 +39,10 @@ Instead of upgrading hardware, we use **deep learning** to:
 **Key strengths:**
 - High-quality reconstructions  
 - Stable training  
-- Better physical consistency  
+- Better physical consistency
 
+### Output from conditional diffusion 
+![Diffusion Output](output/conditional_diffusion_gen.png)
 ---
 
 ### 2. SRGAN (Baseline)
@@ -55,8 +57,10 @@ Instead of upgrading hardware, we use **deep learning** to:
 
 **Limitations:**
 - Less stable training  
-- Can introduce artifacts  
+- Can introduce artifacts
 
+### Output from SRGAN
+![srgan Output](output/srgan_gen.png)
 ---
 
 ## Dataset
