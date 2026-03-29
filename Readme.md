@@ -65,7 +65,7 @@ Instead of upgrading hardware, we use **deep learning** to:
 
 ## Super-Resolution Model Comparison Results
 
-| Model                  | PSNR (dB) | SSIM  |
+| Model                  | PSNR     | SSIM  |
 |-----------------------|----------:|------:|
 | Conditional Diffusion | 23.1164   | 0.4957 |
 | SRGAN                 | 9.1478    | 0.2221 |
