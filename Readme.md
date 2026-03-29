@@ -1,11 +1,11 @@
-# Jet Image Super-Resolution using Diffusion and GAN
+# Super resolution at the CMS detector using Diffusion and GAN
 
-**GSoC 2026 Project** | 
+**GSoC 2026 ml4sci - Specific Tasks 2b** 
 
 This project explores how modern generative models can reconstruct **high-resolution jet images** from **low-resolution detector images**.
 
 We compare two approaches:
--  Diffusion Models (main method)
+-  Diffusion Models 
 - GAN-based Super-Resolution (baseline)
 
 ---
@@ -30,7 +30,7 @@ Instead of upgrading hardware, we use **deep learning** to:
 
 ## Models Used
 
-### 1. Diffusion Model (Primary)
+### 1. Diffusion Model 
 
 - Learns to **gradually remove noise** from images  
 - Produces **stable and consistent results**  
